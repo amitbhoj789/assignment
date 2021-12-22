@@ -1,0 +1,23 @@
+@mixin  display-flex($justify-text) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify-text;
+}
+@mixin input-style {
+    border:0;
+    width: 100%;
+    background-color: transparent;
+    height: 42px;
+    padding: 10px;
+}
+@mixin common-button-style {
+    background-color: #1D272E;
+    padding: 20px;
+    font-size: 15px;
+    text-transform: capitalize;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    width: 100%;
+    display:block;
+    letter-spacing: 1px;
+}

@@ -8,22 +8,20 @@ body {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #202B38;
-  padding: 50px 15px;
+  background-image: linear-gradient(to right, #6D828D, #293648);
+  padding: 60px 15px;
 }
 
 .body-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  padding: 50px 20px;
 }
 .body-wrapper .form-block {
   margin: 0 auto;
   max-width: 500px;
   padding: 50px 20px 30px;
-  background-color: #566F73;
+  background-image: linear-gradient(to right, #3F515C, #1D272E);
 }
 .body-wrapper .form-block h1 {
   text-align: center;
@@ -35,13 +33,20 @@ body {
 .body-wrapper .form-block p {
   text-align: center;
   line-height: 18px;
+  padding: 0 20px;
 }
 .body-wrapper .form-block .form-fields-wrapper {
   background-color: rgba(255, 255, 255, 0.4);
-  padding: 20px;
+  padding: 10px 20px;
   margin: 50px 0 10px;
 }
+.body-wrapper .form-block .form-fields-wrapper .input-field:first-child {
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
 .body-wrapper .form-block .input-field {
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,27 +59,101 @@ body {
   position: absolute;
   color: rgba(0, 0, 0, 0.5);
   left: 30px;
+  transition: 0.2s ease-in-out;
+  top: 15px;
 }
 .body-wrapper .form-block .input-field input {
   border: 0;
   width: 100%;
   background-color: transparent;
-  height: 42px;
+  height: 46px;
   padding: 10px;
+  z-index: 1;
+}
+.body-wrapper .form-block .input-field input:focus {
+  outline: -webkit-focus-ring-color auto 0px !important;
+}
+.body-wrapper .form-block .input-field input:focus + label {
+  top: -5px;
+  transition: 0.2s ease-in-out;
+  font-size: 14px;
 }
 .body-wrapper .form-block .input-action {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px 0;
+  position: relative;
+  margin: 20px 0 60px;
 }
-.body-wrapper .form-block .input-action label, .body-wrapper .form-block .input-action a {
-  font-size: 16px;
+.body-wrapper .form-block .input-action::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - 80px);
+  left: 50%;
+  bottom: -27px;
+  border: 2px solid black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translateX(-50%);
+}
+.body-wrapper .form-block .input-action a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }
-.body-wrapper .form-block .btn-common {
+.body-wrapper .form-block .input-action label {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.body-wrapper .form-block .input-action label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.body-wrapper .form-block .input-action .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+}
+.body-wrapper .form-block .input-action label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.body-wrapper .form-block .input-action label input:checked ~ .checkmark {
   background-color: #1D272E;
+}
+.body-wrapper .form-block .input-action .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.body-wrapper .form-block .input-action label input:checked ~ .checkmark:after {
+  display: block;
+}
+.body-wrapper .form-block .input-action label .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.body-wrapper .form-block .btn-common {
+  background-color: rgba(29, 39, 46, 0.7);
   padding: 20px;
   font-size: 15px;
   text-transform: capitalize;
@@ -83,6 +162,27 @@ body {
   width: 100%;
   display: block;
   letter-spacing: 1px;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+}
+.body-wrapper .form-block .btn-common::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: #1d272e;
+  left: 0;
+  top: 0;
+  transition: 0.5s;
+}
+.body-wrapper .form-block .btn-common:hover::before {
+  width: 100%;
+  transition: 0.5s;
+}
+.body-wrapper .form-block .btn-common span {
+  z-index: 1;
+  position: relative;
 }
 
 /*# sourceMappingURL=style.css.map */

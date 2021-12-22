@@ -7,11 +7,12 @@
     border:0;
     width: 100%;
     background-color: transparent;
-    height: 42px;
+    height: 46px;
     padding: 10px;
+    z-index: 1;
 }
 @mixin common-button-style {
-    background-color: #1D272E;
+    background-color:rgba(29,39,46,0.7);
     padding: 20px;
     font-size: 15px;
     text-transform: capitalize;
@@ -20,4 +21,7 @@
     width: 100%;
     display:block;
     letter-spacing: 1px;
+    border:0;
+    cursor: pointer;
+    position: relative;
 }

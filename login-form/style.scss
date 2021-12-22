@@ -11,18 +11,16 @@ body{
     font-size: 14px;
     color: $font-color;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: $bg-color;
-    padding: 50px 15px;
+    background-image: linear-gradient(to right, #6D828D , #293648);
+    padding:60px 15px;
 }
 .body-wrapper{
     @include display-flex(center);
-    height: 100vh;
-    padding: 50px 20px;
     .form-block {
         margin: 0 auto;
         max-width: 500px;
         padding:50px 20px 30px;
-        background-color: #566F73;
+        background-image: linear-gradient(to right, #3F515C , #1D272E);
         h1{
             text-align: center;
             font-size: 30px;
@@ -33,13 +31,20 @@ body{
         p{
             text-align: center;
             line-height: 18px;
+            padding: 0 20px;
         }
         .form-fields-wrapper {
             background-color: rgba(255,255,255,0.4);
-            padding: 20px;
+            padding:10px 20px;
             margin: 50px 0 10px;
+            .input-field:first-child{
+                border-bottom:1px solid #000;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
         }
         .input-field {
+            font-size: 16px;
             @include display-flex(center);
             position: relative;
             span i{
@@ -49,23 +54,107 @@ body{
                 position: absolute;
                 color :rgba(0, 0, 0, 0.5);
                 left: 30px;
+                transition: 0.2s ease-in-out;
+                top: 15px;
             }
             input{
                 @include input-style;
-
+                &:focus {outline: -webkit-focus-ring-color auto 0px!important;}
+                &:focus + label{top:-5px;transition: 0.2s ease-in-out;font-size:14px;}
             }
         }
         .input-action{
             @include display-flex(space-between);
-            margin:20px 0;
-            label , a{
-                font-size: 16px;
+            position: relative;
+            margin:20px 0 60px;
+            &::after {
+                content: '';
+                position: absolute;
+                width: calc(100% - 80px);
+                left: 50%;
+                bottom: -27px;
+                border: 2px solid black;
+                border-bottom: 1px solid rgba(255,255,255,0.3);
+                transform: translateX(-50%);
+            }
+            a{
                 color: $font-color;
                 text-decoration: none;
+            }
+            label {
+                font-size: 16px;
+                color: $font-color;
+                display: block;
+                position: relative;
+                padding-left: 35px;
+                margin-bottom: 12px;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            label input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 18px;
+                width: 18px;
+                background-color: #eee;
+            }
+            label:hover input ~ .checkmark {
+                background-color: #ccc;
+            }
+            label input:checked ~ .checkmark {
+                background-color: #1D272E;
+            }
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+            label input:checked ~ .checkmark:after {
+                display: block;
+            }
+            label .checkmark:after {
+                left: 7px;
+                top: 4px;
+                width: 4px;
+                height: 8px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
             }
         }
         .btn-common{
             @include common-button-style;
+            &::before{
+                content :'';
+                position: absolute;
+                width: 0%;
+                height: 100%;
+                background-color:rgba(29,39,46,1);
+                left: 0;
+                top: 0;
+                transition: 0.5s;
+            }
+            &:hover::before{
+                width: 100%;
+                transition: 0.5s;
+            }
+            span{
+                z-index: 1;
+                position: relative;
+            }
         }
     }
 }

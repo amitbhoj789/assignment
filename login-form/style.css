@@ -241,4 +241,11 @@ body {
   z-index: 1;
   position: relative;
 }
+
+@media (max-width: 767px) {
+  .body-wrapper .form-block .btn-common {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

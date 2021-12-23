@@ -159,6 +159,9 @@ body{
                 position: relative;
             }
         }
+        @include phone{
+            .btn-common{padding:15px;font-size:14px;}
+        }
     }
 }
 

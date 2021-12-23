@@ -6,7 +6,9 @@
     padding: 0;
     margin: 0;
 }
-
+html, body {
+    height:100%;
+}
 body{
     font-size: 14px;
     color: $font-color;
@@ -20,7 +22,6 @@ body{
 .body-wrapper{
     @include display-flex(center);
     .form-block {
-        margin: 0 auto;
         max-width: 500px;
         padding:50px 20px 30px;
         background-image: linear-gradient(to right, #3F515C , #1D272E);

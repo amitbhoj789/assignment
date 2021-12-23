@@ -5,6 +5,10 @@
   margin: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
@@ -33,7 +37,6 @@ body {
 }
 
 .body-wrapper .form-block {
-  margin: 0 auto;
   max-width: 500px;
   padding: 50px 20px 30px;
   background-image: -webkit-gradient(linear, left top, right top, from(#3F515C), to(#1D272E));

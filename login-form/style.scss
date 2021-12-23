@@ -28,6 +28,9 @@ body{
             font-weight: 300;
             margin-bottom: 30px;
         }
+        @include phone{
+            h1{font-size: 22px;}
+        }
         p{
             text-align: center;
             line-height: 18px;

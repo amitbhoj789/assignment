@@ -42,6 +42,12 @@ body {
   margin-bottom: 30px;
 }
 
+@media (max-width: 767px) {
+  .body-wrapper .form-block h1 {
+    font-size: 22px;
+  }
+}
+
 .body-wrapper .form-block p {
   text-align: center;
   line-height: 18px;
